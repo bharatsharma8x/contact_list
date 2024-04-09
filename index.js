@@ -8,18 +8,18 @@ const searchRoutes = require("./routes/SearchRoutes");
 const spamRoutes = require("./routes/SpamRoutes");
 
 testDbconnection();
-const app = express();
+const index = express();
 
-app.use(bodyParser.json());
+index.use(bodyParser.json());
 
-app.use("/auth", authRoutes);
-app.use("/contacts", contactRoutes);
-app.use("/search", searchRoutes);
-app.use("/spam", spamRoutes);
+index.use("/auth", authRoutes);
+index.use("/contacts", contactRoutes);
+index.use("/search", searchRoutes);
+index.use("/spam", spamRoutes);
 
-app.use(errorHandler);
+index.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+index.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
