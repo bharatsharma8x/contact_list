@@ -1,22 +1,18 @@
 const { Sequelize } = require("sequelize")
 
-const sequelize = new Sequelize("postgresql:lalsir:react@localhost:5432/testing")
+const sequelize = new Sequelize("postgres", "postgres.hmderrscrybmedjdifnr", "/&s9v78NB_RMMbw", {
+  host: "aws-0-ap-south-1.pooler.supabase.com",
+  port: 5432,
+  dialect: "postgres"
+});
 
-const testDbconnection = async()=>{
+const testDbconnection = async () => {
   try {
-    sequelize
-  .authenticate()
-  .then(() => {
+    await sequelize.authenticate();
     console.log("Database connection has been established successfully.");
-  })
-  .catch(err => {
-    console.error("Unable to connect to the database:", err);
-  });
   } catch (error) {
-    console.log("nhi hora ",error);
+    console.error("Unable to connect to the database:", error);
   }
 }
 
-
-
-module.exports={testDbconnection,sequelize}
+module.exports = { testDbconnection, sequelize };
