@@ -1,4 +1,5 @@
 const {Contact} = require("../models/Contacts");
+const { Spam } = require("../models/Spam");
 
 const addContact = async (req, res) => {
   try {

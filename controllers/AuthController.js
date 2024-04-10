@@ -2,8 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../config/secrate");
 const {Users} = require("../models/Users");
-
-
+const { Spam } = require("../models/Spam");
 
 const register = async (req, res) => {
   try {
@@ -16,6 +15,7 @@ const register = async (req, res) => {
       email,
       password: hashedPassword
     });
+    const spam = await Spam.create({ phonenumber,name,email});
     res.status(201).json({ message: "User registered successfully", user });
   } catch (error) {
     res.status(500).json({ message: "Registration failed", error: error.message });

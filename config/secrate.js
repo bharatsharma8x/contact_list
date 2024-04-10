@@ -1,3 +1,3 @@
 module.exports ={
-  secrateKey:"DEV123"
+  secrateKey:"Dev123"
 }

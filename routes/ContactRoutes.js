@@ -4,7 +4,7 @@ const { addContact } = require("../controllers/ContactController");
 const { authenticateUser } = require("../Middlewere");
 
 
-router.post("/", authenticateUser, addContact);
+router.post("/",authenticateUser,  addContact);
 
 
 module.exports = router;
